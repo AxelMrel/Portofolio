@@ -1,956 +1,1833 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axel Morel | Développeur Full Stack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        html {
+            scroll-behavior: smooth;
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-  <!-- =======================================================
-  * Template Name: Craftivo
-  * Template URL: https://bootstrapmade.com/craftivo-bootstrap-portfolio-template/
-  * Updated: Oct 04 2025 with Bootstrap v5.3.8
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Header et Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2020&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* À Propos Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .personal-story {
+            margin: 25px 0;
+            padding: 20px;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+        }
+
+        .personal-story h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .personal-story ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .personal-story li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+
+        .skills {
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--secondary-color);
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        /* Processus Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Compétences Section */
+        .services {
+            background: var(--light-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+        }
+
+        /* Expériences Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 15px;
+            right: -13px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -13px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .timeline-content h4 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        /* Portfolio Section */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            height: 250px;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .portfolio-overlay p {
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            margin: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Témoignages Section */
+        .testimonials {
+            background: var(--light-color);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--secondary-color);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .testimonial-card p {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .client-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .client-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .client-info p {
+            color: var(--text-light);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .blog-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .blog-card p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-top: 5px;
+            min-width: 30px;
+        }
+
+        .contact-text h3 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .contact-text p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Études de Cas */
+        .project-case {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .case-meta {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .case-date, .case-duration, .case-role {
+            background: var(--light-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .case-challenge, .case-solution, .case-results, .case-tech {
+            margin: 30px 0;
+        }
+
+        .case-challenge h4, .case-solution h4, .case-results h4, .case-tech h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .case-solution ul, .case-challenge ul {
+            padding-left: 20px;
+        }
+
+        .case-solution li, .case-challenge li {
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+        }
+
+        .result-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: block;
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .certification-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .cert-badge {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--light-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px 20px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .left::after, .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 200px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .project-case {
+                padding: 20px;
+            }
+            
+            .case-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Cloud Vision</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-    </div>
-  </header>
-
-  <main class="main">
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Axel<span>Morel</span></a>
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">À Propos</a></li>
+                    <li><a href="#process">Processus</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#experiences">Expériences</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/profile/profile-bg-5.webp" alt="" data-aos="fade-in">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
-            <h2>Hello, Je suis Morel ODJRADO</h2>
-            <p>Je suis  <span class="typed" data-typed-items="Developpeur Backend, Developpeur web, Developer mobile"></span><span class="typed-cursor" aria-hidden="true"></span></p>
-            <div class="social-links">
-              <a href="#"><i class="bi bi-twitter-x"></i></a>
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-linkedin"></i></a>
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-aos="fade-up">Axel Morel</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Développeur Full Stack passionné par la création d'applications web et mobiles qui transforment les idées en solutions digitales performantes</p>
+                <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#portfolio" class="btn">Voir mes réalisations</a>
+                    <a href="#contact" class="btn btn-outline">Discutons de votre projet</a>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </section>
 
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">About Me</span>
-        <h2>About Me</h2>
-        <p>Analyste programmeur en développement mobile et backend, spécialisé dans la création d'application modernes et performantes. Expérimentésur les technologies Laravel, Sprint Boot, React Native, Ionic , Fkutter. Je conçois des solutions fiables et évolutives, adaptives aux besoins des utilisateurs</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="150">
-            <div class="profile-card">
-              <div class="profile-header">
-                <div class="profile-avatar">
-                  <img src="assets/img/profile/profile-square-3.webp" class="img-fluid" alt="">
-                  <div class="status-indicator"></div>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up">
+                    <h3>15+</h3>
+                    <p>Projets Réalisés</p>
                 </div>
-                <h3>Morel ODJRADO</h3>
-                <span class="role">Développeur Full Stack</span>
-              </div>
-
-              <div class="profile-stats">
-                <div class="stat-item">
-                  <h4>10</h4>
-                  <p>Projets complètes</p>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3>3+</h3>
+                    <p>Années d'Expérience</p>
                 </div>
-                <div class="stat-item">
-                  <h4>2+</h4>
-                  <p>Years</p>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3>10+</h3>
+                    <p>Clients Satisfaits</p>
                 </div>
-                <div class="stat-item">
-                  <h4>42</h4>
-                  <p>Awards</p>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <h3>5</h3>
+                    <p>Technologies Maîtrisées</p>
                 </div>
-              </div>
-
-              <div class="profile-actions">
-                <a href="#" class="btn-primary"><i class="bi bi-download"></i> Download CV</a>
-                <a href="#" class="btn-secondary"><i class="bi bi-envelope"></i> Contact</a>
-              </div>
-
-              <div class="social-connect">
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-                <a href="#"><i class="bi bi-github"></i></a>
-                <a href="#"><i class="bi bi-twitter"></i></a>
-              </div>
             </div>
-          </div>
-
-          <div class="col-lg-8" data-aos="fade-left" data-aos-delay="200">
-            <div class="content-wrapper">
-              <div class="bio-section">
-                <div class="section-tag">About Me</div>
-                <h2>Transforming Ideas into Digital Reality</h2>
-                  <p>Analyste programmeur en développement mobile et backend, spécialisé dans la création d'application modernes et performantes. Expérimentésur les technologies Laravel, Sprint Boot, React Native, Ionic , Flutter. Je conçois des solutions fiables et évolutives, adaptives aux besoins des utilisateurs.</p>
-                  <p></p>
-
-              </div>
-
-              <div class="details-grid">
-                <div class="detail-item" data-aos="fade-up" data-aos-delay="250">
-                  <i class="bi bi-mortarboard"></i>
-                  <div class="detail-content">
-                    <span>Attestation</span>
-                    <strong>Formation en Génie Logicel à l'atelier K.C.S</strong>
-                  </div>
-                </div>
-
-                <div class="detail-item" data-aos="fade-up" data-aos-delay="300">
-                  <i class="bi bi-mortarboard"></i>
-                  <div class="detail-content">
-                    <span>Diplôme</span>
-                    <strong>Licence en système informatique et logiciel</strong>
-                  </div>
-                </div>
-
-                <div class="detail-item" data-aos="fade-up" data-aos-delay="350">
-                  <i class="bi bi-geo-alt"></i>
-                  <div class="detail-content">
-                    <span>Based In</span>
-                    <strong>Abomey-Calavi</strong>
-                  </div>
-                </div>
-
-                <div class="detail-item" data-aos="fade-up" data-aos-delay="100">
-                  <i class="bi bi-envelope"></i>
-                  <div class="detail-content">
-                    <span>Email</span>
-                    <strong>morelodjrado@gmail.com</strong>
-                  </div>
-                </div>
-
-                <div class="detail-item" data-aos="fade-up" data-aos-delay="150">
-                  <i class="bi bi-phone"></i>
-                  <div class="detail-content">
-                    <span>Phone</span>
-                    <strong>+229 0162413018</strong>
-                  </div>
-                </div>
-
-                <div class="detail-item" data-aos="fade-up" data-aos-delay="200">
-                  <i class="bi bi-calendar-check"></i>
-                  <div class="detail-content">
-                    <span>Availability</span>
-                    <strong>Open to Work</strong>
-                  </div>
-                </div>
-              </div>
-
-              <div class="skills-showcase" data-aos="fade-up" data-aos-delay="250">
-                <div class="section-tag">Core Skills</div>
-                <h3>Technologies utilisées</h3>
-
-                <div class="skills-list skills-animation">
-                  <div class="skill-item">
-                    <div class="skill-info">
-                      <span class="skill-name">React Native &amp; Laravel</span>
-                      <span class="skill-percent">95%</span>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-item">
-                    <div class="skill-info">
-                      <span class="skill-name">Node.js &amp; Express</span>
-                      <span class="skill-percent">90%</span>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-item">
-                    <div class="skill-info">
-                      <span class="skill-name">UI/UX &amp; Figma</span>
-                      <span class="skill-percent">88%</span>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-item">
-                    <div class="skill-info">
-                      <span class="skill-name"> Sprint Boot &amp; PostgreSQL</span>
-                      <span class="skill-percent">85%</span>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-item">
-                    <div class="skill-info">
-                      <span class="skill-name">Flutter &amp; Ionic</span>
-                      <span class="skill-percent">80%</span>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
+    </section>
 
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Resume</span>
-        <h2>Resume</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-          <div class="col-lg-6">
-            <div class="experience-section">
-              <div class="section-header" data-aos="fade-right" data-aos-delay="200">
-                <div class="header-content">
-                  <span class="section-badge">Experience</span>
-                  <h2>Professional Journey</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-              </div>
-
-              <div class="experience-cards">
-                <div class="exp-card featured" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="card-header">
-                    <div class="company-logo">
-                      <i class="bi bi-buildings"></i>
-                    </div>
-                    <div class="period-badge">Current</div>
-                  </div>
-                  <div class="card-body">
-                    <h3>Senior Creative Director</h3>
-                    <p class="company-name">Digital Innovation Labs</p>
-                    <span class="duration">2023 - Present</span>
-                    <p class="description">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.</p>
-                    <div class="skills-tags">
-                      <span class="skill-tag">Leadership</span>
-                      <span class="skill-tag">Strategy</span>
-                      <span class="skill-tag">Innovation</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="exp-card" data-aos="zoom-in" data-aos-delay="350">
-                  <div class="card-header">
-                    <div class="company-logo">
-                      <i class="bi bi-laptop"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3>Product Design Lead</h3>
-                    <p class="company-name">TechForward Solutions</p>
-                    <span class="duration">2020 - 2023</span>
-                    <p class="description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.</p>
-                  </div>
-                </div>
-
-                <div class="exp-card" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="card-header">
-                    <div class="company-logo">
-                      <i class="bi bi-palette"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3>UX Designer</h3>
-                    <p class="company-name">Creative Studio Inc</p>
-                    <span class="duration">2017 - 2020</span>
-                    <p class="description">Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                </div>
-              </div>
+    <!-- À Propos Section -->
+    <section class="section" id="apropos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mon Parcours Unique</h2>
+                <p>De l'apprentissage à l'expertise technique</p>
             </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="education-section">
-              <div class="section-header" data-aos="fade-left" data-aos-delay="200">
-                <div class="header-content">
-                  <span class="section-badge">Education</span>
-                  <h2>Academic Background</h2>
-                  <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</p>
+            <div class="about-content">
+                <div class="about-img" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Axel Morel">
                 </div>
-              </div>
-
-              <div class="education-timeline" data-aos="fade-left" data-aos-delay="300">
-                <div class="timeline-track">
-                  <div class="timeline-item">
-                    <div class="timeline-marker">
-                      <i class="bi bi-mortarboard-fill"></i>
+                <div class="about-text" data-aos="fade-left">
+                    <h3>Plus qu'un simple développeur</h3>
+                    <p>Mon parcours a commencé par une curiosité insatiable pour la technologie. Aujourd'hui, je combine expertise technique et vision business pour créer des solutions qui ont un impact réel.</p>
+                    
+                    <div class="personal-story">
+                        <h4>Ce qui me motive :</h4>
+                        <ul>
+                            <li>✅ Résoudre des problèmes complexes avec des solutions élégantes</li>
+                            <li>✅ Apprendre continuellement de nouvelles technologies</li>
+                            <li>✅ Collaborer avec des équipes passionnées</li>
+                            <li>✅ Contribuer à l'écosystème tech africain</li>
+                        </ul>
                     </div>
-                    <div class="timeline-content">
-                      <div class="education-meta">
-                        <span class="year-range">2015 - 2017</span>
-                        <span class="degree-level">Masters</span>
-                      </div>
-                      <h4>Master of Design Innovation</h4>
-                      <p class="institution">Institute of Creative Arts</p>
-                      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
-                      <div class="achievement">
-                        <i class="bi bi-award"></i>
-                        <span>Summa Cum Laude</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-marker">
-                      <i class="bi bi-book"></i>
-                    </div>
-                    <div class="timeline-content">
-                      <div class="education-meta">
-                        <span class="year-range">2011 - 2015</span>
-                        <span class="degree-level">Bachelor</span>
-                      </div>
-                      <h4>Bachelor of Fine Arts</h4>
-                      <p class="institution">Creative Arts University</p>
-                      <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    </div>
-                  </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-marker">
-                      <i class="bi bi-patch-check-fill"></i>
-                    </div>
-                    <div class="timeline-content">
-                      <div class="education-meta">
-                        <span class="year-range">2016 - 2023</span>
-                        <span class="degree-level">Certificates</span>
-                      </div>
-                      <h4>Professional Certifications</h4>
-                      <div class="certifications-list">
-                        <div class="cert-item">
-                          <span class="cert-name">Advanced UX Research</span>
-                          <span class="cert-year">2023</span>
+                    
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Frontend (React Native, Flutter, Ionic)</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
                         </div>
-                        <div class="cert-item">
-                          <span class="cert-name">Design Leadership</span>
-                          <span class="cert-year">2022</span>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Backend (Laravel, Spring Boot)</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
                         </div>
-                        <div class="cert-item">
-                          <span class="cert-name">Digital Strategy</span>
-                          <span class="cert-year">2021</span>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Architecture Logicielle</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
+                    
+                    <a href="cv_Morel.pdf" class="btn" style="margin-top: 20px;" download>Télécharger mon CV</a>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
+    </section>
 
-      </div>
-
-    </section><!-- /Resume Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Services</span>
-        <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="service-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-palette"></i>
-              </div>
-              <h4>Brand Identity</h4>
-              <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus vivamus magna.</p>
-              <a href="service-details.html" class="read-more">
-                <span>Explore</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
+    <!-- Processus Section -->
+    <section class="section" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ma Méthodologie</h2>
+                <p>Comment je transforme vos idées en réalité</p>
             </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="service-item featured">
-              <div class="featured-tag">Featured</div>
-              <div class="icon-wrapper">
-                <i class="bi bi-layout-text-window-reverse"></i>
-              </div>
-              <h4>UI/UX Design</h4>
-              <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui donec rutrum.</p>
-              <a href="service-details.html" class="read-more">
-                <span>Explore</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="service-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-code-slash"></i>
-              </div>
-              <h4>Development</h4>
-              <p>Praesent sapien massa convallis a pellentesque nec egestas non nisi cras ornare arcu.</p>
-              <a href="service-details.html" class="read-more">
-                <span>Explore</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="service-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-phone"></i>
-              </div>
-              <h4>Mobile Apps</h4>
-              <p>Vivamus suscipit tortor eget felis porttitor volutpat quisque velit nisi pretium ut lacinia.</p>
-              <a href="service-details.html" class="read-more">
-                <span>Explore</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="service-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-megaphone"></i>
-              </div>
-              <h4>Digital Marketing</h4>
-              <p>Nulla porttitor accumsan tincidunt curabitur aliquet quam id dui posuere blandit mauris.</p>
-              <a href="service-details.html" class="read-more">
-                <span>Explore</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="service-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-search"></i>
-              </div>
-              <h4>SEO Services</h4>
-              <p>Pellentesque in ipsum id orci porta dapibus donec sollicitudin molestie malesuada proin.</p>
-              <a href="service-details.html" class="read-more">
-                <span>Explore</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="service-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-graph-up-arrow"></i>
-              </div>
-              <h4>Analytics</h4>
-              <p>Sed porttitor lectus nibh curabitur arcu erat accumsan id imperdiet et porttitor at sem.</p>
-              <a href="service-details.html" class="read-more">
-                <span>Explore</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="service-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-shield-check"></i>
-              </div>
-              <h4>Security</h4>
-              <p>Vivamus magna justo lacinia eget consectetur sed convallis at tellus mauris blandit aliquet.</p>
-              <a href="service-details.html" class="read-more">
-                <span>Explore</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row mt-5">
-          <div class="col-12" data-aos="fade-up" data-aos-delay="200">
-            <div class="cta-box">
-              <div class="row align-items-center">
-                <div class="col-lg-8">
-                  <h3>Transform Your Vision Into Reality</h3>
-                  <p>Partner with us to bring your ideas to life with innovative solutions tailored to your needs</p>
+            <div class="process-steps">
+                <div class="process-step" data-aos="fade-up">
+                    <div class="step-number">1</div>
+                    <h3>Découverte</h3>
+                    <p>Analyse approfondie de vos besoins et objectifs business</p>
                 </div>
-                <div class="col-lg-4 text-lg-end text-center">
-                  <a href="service-details.html" class="cta-btn">Start Your Project</a>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">2</div>
+                    <h3>Conception</h3>
+                    <p>Création de wireframes et prototypes interactifs</p>
                 </div>
-              </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">3</div>
+                    <h3>Développement</h3>
+                    <p>Implémentation avec les meilleures pratiques et technologies</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">4</div>
+                    <h3>Livraison</h3>
+                    <p>Déploiement et support continu pour assurer le succès</p>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-      </div>
+    <!-- Compétences Section -->
+    <section class="section services" id="competences">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes Compétences</h2>
+                <p>Technologies et méthodologies maîtrisées</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Développement Mobile</h3>
+                    <p>Applications multiplateformes avec React Native, Flutter et Ionic. Conception d'interfaces modernes et responsives.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Développement Backend</h3>
+                    <p>Applications serveur robustes avec Laravel (PHP) et Spring Boot (Java). Maîtrise de l'architecture MVC.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Architecture Logicielle</h3>
+                    <p>Application du modèle Repository - Controller - Service pour assurer maintenabilité et modularité du code.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Outils & Méthodologies</h3>
+                    <p>Utilisation de Jira, Trello, Git. Familiarisé avec les principes Agile/Scrum pour une gestion efficace des projets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </section><!-- /Services Section -->
+    <!-- Expériences Section -->
+    <section class="section" id="experiences">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mon Parcours</h2>
+                <p>Expériences professionnelles et formation</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>Développeur Mobile</h3>
+                        <h4>IWAJUTECH | 2025 – Aujourd'hui</h4>
+                        <p>Développement et optimisation d'applications mobiles multiplateformes. Collaboration avec les équipes backend et UI/UX.</p>
+                        <p><strong>Projets :</strong> Waoh Finance, Barutemkso, Application d'assistance virtuelle, Becca, Markoto, API d'appels d'offres (Spring Boot)</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>Stagiaire Académique</h3>
+                        <h4>IWAJUTECH | 2022 – 2024</h4>
+                        <p>Participation active à des projets mobiles et web pour des clients commerciaux. Développement avec Flutter, React Native, Laravel et Ionic.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>Stagiaire Académique</h3>
+                        <h4>ATERI | 2021-2022</h4>
+                        <p>Développement et optimisation de modules de gestion de stock. Analyse des besoins clients et traduction en solutions techniques via Laravel et MySQL.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Portfolio</span>
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
-            <li data-filter="*" class="filter-active">All Work</li>
-            <li data-filter=".filter-creative">Creative</li>
-            <li data-filter=".filter-digital">Digital</li>
-            <li data-filter=".filter-strategy">Strategy</li>
-            <li data-filter=".filter-development">Development</li>
-          </ul>
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-creative">
-              <div class="portfolio-card">
-                <div class="portfolio-image-container">
-                  <img src="assets/img/portfolio/portfolio-1.webp" alt="Creative Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-info">
-                      <span class="project-category">Creative Design</span>
-                      <h4>Visual Identity System</h4>
-                    </div>
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-1.webp" class="glightbox portfolio-link">
-                        <i class="bi bi-plus-lg"></i>
-                      </a>
-                      <a href="#" class="portfolio-details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-meta">
-                  <div class="project-tags">
-                    <span class="tag">Branding</span>
-                    <span class="tag">Identity</span>
-                  </div>
-                  <div class="project-year">2024</div>
-                </div>
-              </div>
+    <section class="section" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes Projets</h2>
+                <p>Réalisations récentes</p>
             </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
-              <div class="portfolio-card">
-                <div class="portfolio-image-container">
-                  <img src="assets/img/portfolio/portfolio-2.webp" alt="Digital Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-info">
-                      <span class="project-category">Digital Experience</span>
-                      <h4>Interactive Web Platform</h4>
-                    </div>
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-2.webp" class="glightbox portfolio-link">
-                        <i class="bi bi-plus-lg"></i>
-                      </a>
-                      <a href="#" class="portfolio-details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-meta">
-                  <div class="project-tags">
-                    <span class="tag">Web Design</span>
-                    <span class="tag">Development</span>
-                  </div>
-                  <div class="project-year">2024</div>
-                </div>
-              </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="api">API</button>
             </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-strategy">
-              <div class="portfolio-card">
-                <div class="portfolio-image-container">
-                  <img src="assets/img/portfolio/portfolio-3.webp" alt="Strategy Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-info">
-                      <span class="project-category">Brand Strategy</span>
-                      <h4>Market Positioning</h4>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="mobile" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Waoh Finance" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Waoh Finance</h3>
+                        <p>Application de gestion financière avec tableaux de bord interactifs et analyses prédictives</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 15px;">Voir l'étude de cas</a>
                     </div>
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-3.webp" class="glightbox portfolio-link">
-                        <i class="bi bi-plus-lg"></i>
-                      </a>
-                      <a href="#" class="portfolio-details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
+                </div>
+                <div class="portfolio-item" data-category="mobile" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Barutemkso" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Barutemkso</h3>
+                        <p>Application de vente de livres en ligne avec système de recommandation</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 15px;">Voir l'étude de cas</a>
                     </div>
-                  </div>
                 </div>
-                <div class="portfolio-meta">
-                  <div class="project-tags">
-                    <span class="tag">Strategy</span>
-                    <span class="tag">Consulting</span>
-                  </div>
-                  <div class="project-year">2023</div>
+                <div class="portfolio-item" data-category="api" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="API Appels d'Offres" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>API Appels d'Offres</h3>
+                        <p>API REST Spring Boot pour traitement d'appels d'offres Excel avec génération de rapports</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 15px;">Voir l'étude de cas</a>
+                    </div>
                 </div>
-              </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-development">
-              <div class="portfolio-card">
-                <div class="portfolio-image-container">
-                  <img src="assets/img/portfolio/portfolio-4.webp" alt="Development Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-info">
-                      <span class="project-category">Full Stack</span>
-                      <h4>Custom Application</h4>
-                    </div>
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-4.webp" class="glightbox portfolio-link">
-                        <i class="bi bi-plus-lg"></i>
-                      </a>
-                      <a href="#" class="portfolio-details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-meta">
-                  <div class="project-tags">
-                    <span class="tag">React</span>
-                    <span class="tag">Node.js</span>
-                  </div>
-                  <div class="project-year">2024</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-creative">
-              <div class="portfolio-card">
-                <div class="portfolio-image-container">
-                  <img src="assets/img/portfolio/portfolio-5.webp" alt="Creative Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-info">
-                      <span class="project-category">Art Direction</span>
-                      <h4>Campaign Design</h4>
-                    </div>
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-5.webp" class="glightbox portfolio-link">
-                        <i class="bi bi-plus-lg"></i>
-                      </a>
-                      <a href="#" class="portfolio-details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-meta">
-                  <div class="project-tags">
-                    <span class="tag">Creative</span>
-                    <span class="tag">Campaign</span>
-                  </div>
-                  <div class="project-year">2024</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
-              <div class="portfolio-card">
-                <div class="portfolio-image-container">
-                  <img src="assets/img/portfolio/portfolio-6.webp" alt="Digital Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-info">
-                      <span class="project-category">Digital Product</span>
-                      <h4>Mobile Experience</h4>
-                    </div>
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-6.webp" class="glightbox portfolio-link">
-                        <i class="bi bi-plus-lg"></i>
-                      </a>
-                      <a href="#" class="portfolio-details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-meta">
-                  <div class="project-tags">
-                    <span class="tag">Mobile</span>
-                    <span class="tag">UI/UX</span>
-                  </div>
-                  <div class="project-year">2023</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
+    </section>
 
-        <div class="portfolio-bottom" data-aos="fade-up" data-aos-delay="400">
-          <div class="row align-items-center">
-            <div class="col-lg-8">
-              <h3>Like what you see?</h3>
-              <p>Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+    <!-- Études de Cas Section -->
+    <section class="section" id="projets-details" style="background: var(--light-color);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Études de Cas Détaillées</h2>
+                <p>Découvrez comment j'ai résolu des problèmes complexes</p>
             </div>
-            <div class="col-lg-4 text-lg-end">
-              <a href="#contact" class="btn btn-accent">Let's Work Together</a>
+            
+            <div class="project-case" data-aos="fade-up">
+                <div class="case-content">
+                    <h3>🚀 Waoh Finance - Application de Gestion Budgétaire</h3>
+                    <div class="case-meta">
+                        <span class="case-date">2024</span>
+                        <span class="case-duration">4 mois de développement</span>
+                        <span class="case-role">Développeur Full Stack</span>
+                    </div>
+                    
+                    <div class="case-challenge">
+                        <h4>🧩 Le Défi</h4>
+                        <p>Créer une application mobile qui permet aux utilisateurs de suivre leurs dépenses, créer des budgets et recevoir des alertes intelligentes tout en garantissant la sécurité des données financières.</p>
+                    </div>
+                    
+                    <div class="case-solution">
+                        <h4>💡 Ma Solution</h4>
+                        <ul>
+                            <li>Architecture Flutter avec BLoC pour la gestion d'état</li>
+                            <li>Backend Laravel avec API REST sécurisée</li>
+                            <li>Intégration de graphiques interactifs avec Chart.js</li>
+                            <li>Système de notification push pour les alertes budgétaires</li>
+                            <li>Chiffrement AES-256 pour les données sensibles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-results">
+                        <h4>📊 Résultats</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <span class="result-number">+2,000</span>
+                                <span class="result-label">Téléchargements</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-number">4.8★</span>
+                                <span class="result-label">Note moyenne</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-number">-30%</span>
+                                <span class="result-label">Dépenses utilisateurs</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-tech">
+                        <h4>🛠️ Technologies Utilisées</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-      </div>
+    <!-- Section Témoignages -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ils me font confiance</h2>
+                <p>Retours de clients et collaborateurs</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <p>"Axel a su comprendre nos besoins et livrer une application qui dépasse nos attentes. Son professionnalisme et sa réactivité ont fait la différence."</p>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Client" class="client-img">
+                        <div>
+                            <h4>Jean Koffi</h4>
+                            <p>CEO, Waoh Finance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p>"Collaborer avec Axel a été un vrai plaisir. Sa maîtrise technique et sa capacité à proposer des solutions innovantes sont impressionnantes."</p>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Client" class="client-img">
+                        <div>
+                            <h4>Marie Dossou</h4>
+                            <p>Product Manager, IWAJUTECH</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </section><!-- /Portfolio Section -->
+    <!-- Section Blog -->
+    <section class="section" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes Réflexions</h2>
+                <p>Partages sur le développement et la tech</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Article blog" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">15 Mars 2024</div>
+                        <h3>Flutter vs React Native en 2024</h3>
+                        <p>Analyse comparative des deux frameworks pour le développement mobile cross-platform. Avantages, inconvénients et cas d'usage spécifiques.</p>
+                        <a href="#" class="btn" style="margin-top: 15px;">Lire l'article</a>
+                    </div>
+                </div>
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1103&q=80" alt="Article blog" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">28 Février 2024</div>
+                        <h3>L'avenir de la tech en Afrique</h3>
+                        <p>Perspectives sur le développement des startups technologiques sur le continent et les opportunités pour les développeurs.</p>
+                        <a href="#" class="btn" style="margin-top: 15px;">Lire l'article</a>
+                    </div>
+                </div>
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Article blog" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">10 Février 2024</div>
+                        <h3>Bonnes pratiques de sécurité API</h3>
+                        <p>Guide complet pour sécuriser vos APIs REST contre les attaques courantes et protéger les données utilisateurs.</p>
+                        <a href="#" class="btn" style="margin-top: 15px;">Lire l'article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="section" id="faq" style="background: var(--light-color);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Questions Fréquentes</h2>
+                <p>Toutes les réponses à vos questions</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <h3>Quel est votre délai de livraison typique pour une application mobile ?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pour une application mobile standard avec backend, je prévois généralement 2 à 4 mois selon la complexité. Je travaille en sprints de 2 semaines avec des livraisons incrementelles.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <h3>Proposez-vous un support après la livraison ?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, je propose différents niveaux de support : 30 jours de support inclus, puis forfaits de maintenance mensuels incluant corrections de bugs, mises à jour de sécurité et support technique.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <h3>Quelle est votre stack technologique préférée ?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Je suis spécialisé dans Flutter pour le mobile et Laravel/Spring Boot pour le backend. Cependant, je choisis toujours la technologie la plus adaptée à votre projet spécifique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Contact</span>
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4">
-            <div class="info-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-geo-alt"></i>
-              </div>
-              <div>
-                <h3>Address</h3>
-                <p>2847 Oak Street, San Francisco, CA 94102</p>
-              </div>
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Travaillons ensemble</h2>
+                <p>Discutons de votre prochain projet</p>
             </div>
-
-            <div class="info-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-telephone"></i>
-              </div>
-              <div>
-                <h3>Call Me</h3>
-                <p>+1 (555) 234-5678</p>
-              </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Basé à Abomey-Calavi</h3>
+                            <p>Disponible pour des projets en remote dans le monde entier</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Téléphone</h3>
+                            <p>+229 0154680807</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>morelodjrado@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Disponibilité</h3>
+                            <p>Réponse sous 24h pour toute nouvelle demande</p>
+                            <a href="#" class="btn" style="margin-top: 10px;">Prendre rendez-vous</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="">Type de projet</option>
+                                <option value="mobile">Application Mobile</option>
+                                <option value="web">Site Web</option>
+                                <option value="api">API & Backend</option>
+                                <option value="consulting">Consulting</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Décrivez votre projet..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Envoyer ma demande</button>
+                    </form>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="info-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-envelope"></i>
-              </div>
-              <div>
-                <h3>Email Me</h3>
-                <p>alex@example.com</p>
-              </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Axel Morel</h3>
+                    <p>Développeur Full Stack spécialisé en applications web et mobiles modernes et performantes.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#apropos">À Propos</a></li>
+                        <li><a href="#competences">Compétences</a></li>
+                        <li><a href="#experiences">Expériences</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Développement Mobile</a></li>
+                        <li><a href="#">Développement Web</a></li>
+                        <li><a href="#">API & Backend</a></li>
+                        <li><a href="#">Architecture Logicielle</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p>Prêt à démarrer votre projet? Contactez-moi dès maintenant!</p>
+                    <a href="#contact" class="btn" style="margin-top: 10px; width: 100%;">Me contacter</a>
+                </div>
             </div>
-
-          </div>
-
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div>
-
+            <div class="footer-bottom">
+                <p>&copy; 2024 Axel Morel. Tous droits réservés.</p>
+            </div>
         </div>
+    </footer>
 
-      </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialiser AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
 
-    </section><!-- /Contact Section -->
+        // Menu mobile
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-  </main>
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
 
-  <footer id="footer" class="footer">
+        // Fermer le menu mobile en cliquant sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Craftivo</span>
-          </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
+        // Filtrage du portfolio
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Retirer la classe active de tous les boutons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Ajouter la classe active au bouton cliqué
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
 
-          </ul>
-        </div>
+        // Animation des barres de compétences
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        function animateSkills() {
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+            });
+        }
 
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
+        // Observer pour déclencher l'animation des compétences
+        const aboutSection = document.querySelector('#apropos');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkills();
+                }
+            });
+        }, { threshold: 0.5 });
 
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
-        </div>
+        observer.observe(aboutSection);
 
-      </div>
-    </div>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Craftivo</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
+        // Animation des chiffres
+        function animateNumbers() {
+            const resultNumbers = document.querySelectorAll('.result-number');
+            resultNumbers.forEach(number => {
+                const target = parseInt(number.textContent.replace('+', '').replace(',', ''));
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        number.textContent = target + (target > 1000 ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        number.textContent = Math.floor(current) + (target > 1000 ? '+' : '');
+                    }
+                }, 30);
+            });
+        }
 
-  </footer>
+        // Observer pour l'animation des chiffres
+        const resultsSection = document.querySelector('#projets-details');
+        const resultsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                }
+            });
+        }, { threshold: 0.5 });
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        if (resultsSection) {
+            resultsObserver.observe(resultsSection);
+        }
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+        // Formulaire de contact
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
+            contactForm.reset();
+        });
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+        // Smooth scrolling pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
