@@ -7,6 +7,112 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
+
+        /* Styles pour la section études de cas améliorée */
+.case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.case-header h3 {
+    margin: 0;
+    flex: 1;
+    min-width: 300px;
+}
+
+.case-badge {
+    background: var(--secondary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.case-solution ul li strong {
+    color: var(--primary-color);
+}
+
+.case-features {
+    margin: 30px 0;
+    padding: 25px;
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+}
+
+.case-features h4 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    transform: translateY(-3px);
+}
+
+.feature-item i {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    width: 25px;
+    text-align: center;
+}
+
+.feature-item span {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Améliorations responsives */
+@media (max-width: 768px) {
+    .case-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .case-header h3 {
+        min-width: auto;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .case-features {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .case-badge {
+        align-self: flex-start;
+    }
+    
+    .feature-item {
+        padding: 12px;
+    }
+}
         /* Variables CSS */
         :root {
             --primary-color: #2c3e50;
@@ -1135,7 +1241,7 @@
     <section class="hero" id="accueil">
         <div class="container">
             <div class="hero-content">
-                <h1 data-aos="fade-up">Axel Morel</h1>
+                <h1 data-aos="fade-up"> ODJRADO Axel Morel</h1>
                 <p data-aos="fade-up" data-aos-delay="200">Développeur Full Stack passionné par la création d'applications web et mobiles qui transforment les idées en solutions digitales performantes</p>
                 <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
                     <a href="#portfolio" class="btn">Voir mes réalisations</a>
@@ -1351,7 +1457,7 @@
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item" data-category="mobile" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Waoh Finance" class="portfolio-img">
+                    <img src="finance.png" alt="Waoh Finance" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Waoh Finance</h3>
                         <p>Application de gestion financière avec tableaux de bord interactifs et analyses prédictives</p>
@@ -1369,9 +1475,48 @@
                         <h3>Barutemkso</h3>
                         <p>Application de vente de livres en ligne avec système de recommandation</p>
                         <div class="tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 15px;">Voir l'étude de cas</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="mobile" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Barutemkso" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Becca</h3>
+                        <p>Application de gestion de cagnotes</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 15px;">Voir l'étude de cas</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="mobile" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Barutemkso" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Marketo</h3>
+                        <p>Application de vente de voitures et de publications</p>
+                        <div class="tech-stack">
                             <span class="tech-tag">React Native</span>
                             <span class="tech-tag">Node.js</span>
                             <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 15px;">Voir l'étude de cas</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="100">
+                    <img src="agri.png" alt="Barutemkso" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>AgriCarte</h3>
+                        <p>Application web de géolocalisation et de gestion des producteurs et de leurs produits</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">Ajax</span>
+                            <span class="tech-tag">MySQL</span>
                         </div>
                         <a href="#" class="btn" style="margin-top: 15px;">Voir l'étude de cas</a>
                     </div>
@@ -1384,113 +1529,244 @@
                         <div class="tech-stack">
                             <span class="tech-tag">Spring Boot</span>
                             <span class="tech-tag">Java</span>
-                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Postgre</span>
                         </div>
                         <a href="#" class="btn" style="margin-top: 15px;">Voir l'étude de cas</a>
                     </div>
                 </div>
+
+                
             </div>
         </div>
     </section>
 
-    <!-- Études de Cas Section -->
-    <section class="section" id="projets-details" style="background: var(--light-color);">
-        <div class="container">
-            <div class="section-title">
-                <h2>Études de Cas Détaillées</h2>
-                <p>Découvrez comment j'ai résolu des problèmes complexes</p>
-            </div>
-            
-            <div class="project-case" data-aos="fade-up">
-                <div class="case-content">
-                    <h3>🚀 Waoh Finance - Application de Gestion Budgétaire</h3>
-                    <div class="case-meta">
-                        <span class="case-date">2024</span>
-                        <span class="case-duration">4 mois de développement</span>
-                        <span class="case-role">Développeur Full Stack</span>
-                    </div>
-                    
-                    <div class="case-challenge">
-                        <h4>🧩 Le Défi</h4>
-                        <p>Créer une application mobile qui permet aux utilisateurs de suivre leurs dépenses, créer des budgets et recevoir des alertes intelligentes tout en garantissant la sécurité des données financières.</p>
-                    </div>
-                    
-                    <div class="case-solution">
-                        <h4>💡 Ma Solution</h4>
-                        <ul>
-                            <li>Architecture Flutter avec BLoC pour la gestion d'état</li>
-                            <li>Backend Laravel avec API REST sécurisée</li>
-                            <li>Intégration de graphiques interactifs avec Chart.js</li>
-                            <li>Système de notification push pour les alertes budgétaires</li>
-                            <li>Chiffrement AES-256 pour les données sensibles</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="case-results">
-                        <h4>📊 Résultats</h4>
-                        <div class="results-grid">
-                            <div class="result-item">
-                                <span class="result-number">+2,000</span>
-                                <span class="result-label">Téléchargements</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-number">4.8★</span>
-                                <span class="result-label">Note moyenne</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-number">-30%</span>
-                                <span class="result-label">Dépenses utilisateurs</span>
-                            </div>
+  <!-- Études de Cas Section -->
+<section class="section" id="projets-details" style="background: var(--light-color);">
+    <div class="container">
+        <div class="section-title">
+            <h2>Études de Cas Détaillées</h2>
+            <p>Découvrez comment j'ai résolu des problèmes complexes</p>
+        </div>
+        
+        <!-- Waoh Finance -->
+        <div class="project-case" data-aos="fade-up">
+            <div class="case-content">
+                <div class="case-header">
+                    <h3>Waoh Finance - Application de Gestion Budgétaire</h3>
+                    <span class="case-badge">Application Mobile</span>
+                </div>
+                <div class="case-meta">
+                    <span class="case-date">2024</span>
+                    <span class="case-duration">4 mois de développement</span>
+                    <span class="case-role">Développeur Full Stack</span>
+                </div>
+                
+                <div class="case-challenge">
+                    <h4> Le Défi</h4>
+                    <p>Créer une application mobile qui permet aux utilisateurs de suivre leurs dépenses, créer des budgets et recevoir des alertes intelligentes tout en garantissant la sécurité des données financières.</p>
+                </div>
+                
+                <div class="case-solution">
+                    <h4> Ma Solution</h4>
+                    <ul>
+                        <li><strong>Architecture Flutter</strong> avec BLoC pour la gestion d'état</li>
+                        <li><strong>Backend Laravel</strong> avec API REST sécurisée</li>
+                        <li>Intégration de <strong>graphiques interactifs</strong> avec Chart.js</li>
+                        <li>Système de <strong>notification push</strong> pour les alertes budgétaires</li>
+                        <li><strong>Chiffrement AES-256</strong> pour les données sensibles</li>
+                    </ul>
+                </div>
+                
+                <div class="case-results">
+                    <h4> Résultats</h4>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-number">+30</span>
+                            <span class="result-label">Téléchargements</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">4.8</span>
+                            <span class="result-label">Note moyenne</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">-30%</span>
+                            <span class="result-label">Dépenses utilisateurs</span>
                         </div>
                     </div>
-                    
-                    <div class="case-tech">
-                        <h4>🛠️ Technologies Utilisées</h4>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Dart</span>
-                            <span class="tech-tag">Laravel</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Chart.js</span>
-                        </div>
+                </div>
+                
+                <div class="case-tech">
+                    <h4> Technologies Utilisées</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Chart.js</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Section Témoignages -->
-    <section class="section testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Ils me font confiance</h2>
-                <p>Retours de clients et collaborateurs</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card" data-aos="fade-up">
-                    <p>"Axel a su comprendre nos besoins et livrer une application qui dépasse nos attentes. Son professionnalisme et sa réactivité ont fait la différence."</p>
-                    <div class="client-info">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Client" class="client-img">
-                        <div>
-                            <h4>Jean Koffi</h4>
-                            <p>CEO, Waoh Finance</p>
+        <!-- API Appels d'Offres -->
+        <div class="project-case" data-aos="fade-up" data-aos-delay="100">
+            <div class="case-content">
+                <div class="case-header">
+                    <h3>API Appels d'Offres - Automatisation des Processus</h3>
+                    <span class="case-badge">API & Backend</span>
+                </div>
+                <div class="case-meta">
+                    <span class="case-date">2025</span>
+                    <span class="case-duration">3 mois de développement</span>
+                    <span class="case-role">Développeur Backend</span>
+                </div>
+                
+                <div class="case-challenge">
+                    <h4>Le Défi</h4>
+                    <p>Développer une API robuste capable de traiter automatiquement des fichiers Excel d'appels d'offres, extraire les données pertinentes et générer des rapports détaillés pour les décisionnaires.</p>
+                </div>
+                
+                <div class="case-solution">
+                    <h4> Ma Solution</h4>
+                    <ul>
+                        <li><strong>Architecture Spring Boot</strong> avec design patterns</li>
+                        <li><strong>Parser Excel</strong> automatisé avec Apache POI</li>
+                        <li><strong>API REST</strong> avec documentation Swagger complète</li>
+                        <li>Système de <strong>génération de rapports PDF</strong></li>
+                        <li><strong>Validation des données</strong> et gestion des erreurs</li>
+                        <li>Intégration avec <strong>système de notification</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="case-results">
+                    <h4>Résultats</h4>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-number">-80%</span>
+                            <span class="result-label">Temps de traitement</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">99.8%</span>
+                            <span class="result-label">Précision données</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">+50</span>
+                            <span class="result-label">Appels/jour traités</span>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <p>"Collaborer avec Axel a été un vrai plaisir. Sa maîtrise technique et sa capacité à proposer des solutions innovantes sont impressionnantes."</p>
-                    <div class="client-info">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Client" class="client-img">
-                        <div>
-                            <h4>Marie Dossou</h4>
-                            <p>Product Manager, IWAJUTECH</p>
+                
+                <div class="case-tech">
+                    <h4>Technologies Utilisées</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Apache POI</span>
+                        <span class="tech-tag">Swagger</span>
+                        <span class="tech-tag">JWT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AgriCarte -->
+        <div class="project-case" data-aos="fade-up" data-aos-delay="200">
+            <div class="case-content">
+                <div class="case-header">
+                    <h3>AgriCarte - Plateforme Agricole Intelligente</h3>
+                    <span class="case-badge">Application Web</span>
+                </div>
+                <div class="case-meta">
+                    <span class="case-date">2025</span>
+                    <span class="case-duration">5 mois de développement</span>
+                    <span class="case-role">Développeur Full Stack</span>
+                </div>
+                
+                <div class="case-challenge">
+                    <h4>Le Défi</h4>
+                    <p>Créer une plateforme web permettant la géolocalisation des producteurs agricoles, la visualisation de leurs produits, et un système de commande en ligne avec dashboard de gestion complet.</p>
+                </div>
+                
+                <div class="case-solution">
+                    <h4> Ma Solution</h4>
+                    <ul>
+                        <li><strong>Architecture Laravel</strong> avec séparation des responsabilités</li>
+                        <li><strong>Système de géolocalisation</strong> avec Google Maps API</li>
+                        <li><strong>Dashboard admin</strong> avec analytics et statistiques</li>
+                        <li><strong>Système de commande</strong> en temps réel</li>
+                        <li><strong>Module de messagerie</strong> intégré</li>
+                        <li><strong>Gestion des stocks</strong> automatisée</li>
+                        <li><strong>Interface responsive</strong> pour tous devices</li>
+                    </ul>
+                </div>
+                
+                <div class="case-results">
+                    <h4> Résultats</h4>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-number">+15</span>
+                            <span class="result-label">Producteurs inscrits en phase test</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">+500</span>
+                            <span class="result-label">Commandes en phase test</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">+40%</span>
+                            <span class="result-label">Revenus producteurs en phase test</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-tech">
+                    <h4> Technologies Utilisées</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Google Maps API</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">Chart.js</span>
+                    </div>
+                </div>
+
+                <div class="case-features">
+                    <h4> Fonctionnalités Principales</h4>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Géolocalisation des producteurs</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Système de commande en ligne</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Dashboard analytics</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-warehouse"></i>
+                            <span>Gestion des stocks</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Messagerie intégrée</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Design responsive</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+   
 
     <!-- Section Blog -->
     <section class="section" id="blog">
@@ -1597,7 +1873,7 @@
                         </div>
                         <div class="contact-text">
                             <h3>Téléphone</h3>
-                            <p>+229 0154680807</p>
+                            <p>+229 0162413018</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1652,7 +1928,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
-                    <h3>Axel Morel</h3>
+                    <h3>ODJRADO Axel Morel</h3>
                     <p>Développeur Full Stack spécialisé en applications web et mobiles modernes et performantes.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
